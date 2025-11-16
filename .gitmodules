@@ -1,0 +1,3 @@
+[submodule "inputs/dotfiles"]
+  path = inputs/dotfiles
+  url = ssh://git@github.com:Byrix/dotfiles.git
