@@ -1,62 +1,54 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixos-unstable";
-    devshell.url = "github:numtide/devshell";
+    systems.url = "gitub:nix-systems/default-linux";
+    hardware.url = "github:nix-systems/nixos-hardware";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-colours.url = "github:misterio77/nix-colors";
 
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-    snowfall-lib = {
-      url = "github:songpola/snowfallorg-lib";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    sops-nix = {
+      url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dotfiles = {
-      url = "github:byrix/dotfiles";
-      flake = false;
-    };
+    devshell.url = "github:numtide/devshell";
   };
 
-  outputs = inputs:
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
-      src = ./.;
+  outputs = { self, nixpkgs, home-manager, systems, ... } @ inputs: let
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    pkgsFor = lib.genAttrs (import systems) (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+      );
+    forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+  in {
+    inherit lib;
+    nixosModules = import ./modules/system;
+    homeManagerModules = import ./modules/home;
 
-      channels-config = {
-        allowUnfree = true;
-      };
+    # overlays = import ./overlays { inherit inputs outputs; };
+    # packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    shells = forEachSystem (pkgs: import ./shells { inherit pkgs; });
 
-      snowfall = {
-        namespaace = "byrix";
-        meta = {
-          name = "byrix";
-          title = "byrix";
-        };
-      };
-
-      alias = {
-        shells.default = "byrix";
-        templates.default = "devshell";
-      };
-
-      outputs-builder = channels: let
-        treefmtConfig = { ... }: {
-          projectRootFile = "flake.nix";
-          programs = {
-            alejandra.enable = true;
-            stylua.enable = true;
-            keep-sorted.enable = true;
-            terraform.enable = true;
-          };
-          settings = {
-            global.excludes = [ "inputs/**" ];
-          };
-        };
-        treeFmtEval = inputs.treefmt-nix.lib.evalModules (channels.nixpkgs) (treefmtConfig { pkgs = channels.nixpkgs; });
-      in {
-        formatter = treeFmtEval.config.build.wrapper;
+    nixosConfigurations = {
+      # Desktop
+      megatron = lib.nixosSystem {
+        modules = [ ./hosts/megatron ];
+        specialArgs = { inherit inputs outputs; };
       };
     };
+  };
 }
