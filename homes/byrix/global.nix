@@ -12,8 +12,6 @@
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
-  colourScheme = nix-colors.colorSchemes.catppuccin-mocha;
-
   systemd.user.startServices = "sd-switch";
   programs = {
     home-manager.enable = true;
@@ -38,6 +36,22 @@
         ".local/bin"
         ".local/share/nix" # Trusted settings + repl history
       ];
+    };
+  };
+
+  # Styling
+  colourScheme = nix-colors.colorSchemes.catppuccin-mocha;
+  fontProfiles = {
+    enable = true;
+    monospace = {
+      name = "NotoSansM Nerd Font";
+      package = pkgs.nerd-fonts.noto;
+      italic = "Condensed Regular";
+    };
+    regular = {
+      name = "NotoSans Nerd Font";
+      package = pkgs.nerd-fonts.noto;
+      italic = "Condensed Regular";
     };
   };
 }

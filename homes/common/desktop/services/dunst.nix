@@ -16,7 +16,7 @@
 
         transparency = 10;
         sort = true;
-        font = "Monospace 8";
+        font = "${config.fontProfiles.monospace.name} ${config.fontProfiles.monospace.size}";
         markup = "full";
       };
 
