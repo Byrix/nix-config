@@ -1,0 +1,3 @@
+{
+  openrgb = ./hardware/openrgb.nix;
+}
