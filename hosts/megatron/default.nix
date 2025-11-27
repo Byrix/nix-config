@@ -12,6 +12,19 @@
     ../common/optional/pipewire.nix 
   ];
 
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
+
+  time.timeZone = "Australia/Melbourne";
+
   networking = {
     hostName = "megatron";
     useDHCP = true;

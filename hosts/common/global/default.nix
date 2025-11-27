@@ -4,8 +4,8 @@
     inputs.home-manager.nixosModules.home-manager
     ./nix.nix
     ./locale.nix
-    ./openssh.nix
-    ./sops.nix
+    # ./openssh.nix
+    # ./sops.nix
   ]
   ++ (builtins.attrValues outputs.nixosModules);
 
