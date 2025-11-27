@@ -39,8 +39,8 @@
     nixosModules = import ./modules/system;
     homeManagerModules = import ./modules/home;
 
-    # overlays = import ./overlays { inherit inputs outputs; };
-    # packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    overlays = import ./overlays { inherit inputs outputs; };
+    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
     shells = forEachSystem (pkgs: import ./shells { inherit pkgs; });
 
     nixosConfigurations = {
