@@ -1,6 +1,8 @@
 { ... }:
 {
-  imports = [];
+  imports = [
+    ./treesitter.nix
+  ];
 
   programs.nixvim = {
     plugins = {

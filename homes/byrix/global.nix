@@ -3,7 +3,9 @@
   imports = [
     inputs.impermanence.homeManagerModules.impermanence 
     nix-colors.homeManagerModules.default
-    ./apps/cli
+    # ./apps/cli
+    ../common/desktop
+    ../common/dev
   ]
   ++ (builtins.attrValues outputs.homeManagerModules);
 
@@ -27,16 +29,16 @@
       NH_FLAKE = "$HOME/Documents/NixConfig";
     };
 
-    persistence = {
-      "/persist".directories = [
-        "Documents"
-        "Downloads"
-        "Pictures"
-        "Videos"
-        ".local/bin"
-        ".local/share/nix" # Trusted settings + repl history
-      ];
-    };
+    # persistence = {
+    #   "/persist".directories = [
+    #     "Documents"
+    #     "Downloads"
+    #     "Pictures"
+    #     "Videos"
+    #     ".local/bin"
+    #     ".local/share/nix" # Trusted settings + repl history
+    #   ];
+    # };
   };
 
   # Styling

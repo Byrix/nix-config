@@ -2,7 +2,7 @@
 {
   imports = [
     ./env/hyprland
-    ./kitteh
+    # ./kitteh
     ./launchers
     ./services
   ];

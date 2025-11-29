@@ -5,7 +5,7 @@
       "x-scheme-handler/terminal" = "Alacritty.desktop";
     };
     defaultApplications = {
-      "x-scheme-handler/terminal" = "Alcritty.desktop";
+      "x-scheme-handler/terminal" = "Alacritty.desktop";
     };
   };
 
