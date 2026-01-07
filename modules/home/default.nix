@@ -1,0 +1,3 @@
+{
+  colours = import ./colours.nix;
+}
