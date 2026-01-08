@@ -48,5 +48,7 @@
         modules = [ ./hosts/megatron ];
       };
     };
+
+    homeConfigurations = {};
   };
 }

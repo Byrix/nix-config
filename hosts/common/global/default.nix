@@ -4,7 +4,10 @@
     ./nix.nix
     ./locale.nix
 
+    ./ssh.nix
+
     ./colours.nix
+
     ./gamemode.nix
     ./steam-hardware.nix
   ];
@@ -21,4 +24,6 @@
       allowUnfree = true;
     };
   };
+
+  networking.domain = "byrix.local";
 }
