@@ -7,15 +7,7 @@ in {
     settings = {
       # Security 
       PasswordAuthentication = false;
-      PermitRootLogin = false;
-
-      # Remove stale sockets 
-      StreamLocalBindUnlink = "yes";
-      # Allow port forwarding to everywhere
-      GatewayPorts = "clientspecific";
-      # Let WAYLAND_DISPLAY be forwarded
-      AcceptEnv = "WAYLAND_DISPLAY";
-      X11Forwarding = true;
+      PermitRootLogin = "no";
     };
 
     hostKeys = [

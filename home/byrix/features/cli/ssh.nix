@@ -10,10 +10,10 @@ in {
       net = {
         host = lib.concatStringsSep " " (lib.flatten (map (host: [
             host
-            "${host}.${config.networking.domain}"
+            "${host}.byrix.local"
           ])
           hostnames));
-      }
-    }
-  }
+      };
+    };
+  };
 }
