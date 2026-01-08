@@ -12,7 +12,7 @@
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-colours.url = "github:misterio77/nix-colors";
+    catppuccin.url = "github:catppuccin/nix/release-25.05";
   };
 
   outputs = {
@@ -38,7 +38,7 @@
     homeManagerModules = import ./modules/home;
 
     packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
-    # formatter = forEachSystem (pkgs: pkgs.alejandra);
+    formatter = forEachSystem (pkgs: pkgs.alejandra);
     overlays = import ./overlays {inherit inputs outputs;};
 
     nixosConfigurations = {

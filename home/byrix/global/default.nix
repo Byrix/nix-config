@@ -1,8 +1,6 @@
-{ inputs, lib, pkgs, config, outputs, nix-colours, ... }: {
-  imports = [
-    # nix-colours.homeManagerModules.default
-  ];
-  #++ (builtins.attrValues outputs.homeManagerModules);
+{ inputs, lib, pkgs, config, outputs, ... }: {
+  imports = []
+  ++ (builtins.attrValues outputs.homeManagerModules);
 
   nix = {
     package = lib.mkDefault pkgs.nix;
@@ -25,6 +23,4 @@
       NH_FLAKE = "$HOME/.dotfiles";
     };
   };
-
-  # colourScheme = nix-colours.colorSchemes.catppuccin-mocha;
 }
