@@ -1,6 +1,6 @@
-{ config, ... }: {
+{ pkgs, ... }: {
   programs.lutris = {
     enable = true;
-    steamPackage = config.programs.steam.package;
+    steamPackage = (pkgs.steam.override { extraPkgs = p: [p.gamescope]; });
   };
 }
