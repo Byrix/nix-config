@@ -1,6 +1,6 @@
 {
   imports = [
     ./communication
-    ./terminals/alacritty.nix
+    ./alacritty.nix
   ];
 }

@@ -4,7 +4,7 @@
     ./features/config/colours.nix
     ./features/cli
     ./features/games
-    ./features/apps
+    ./features/desktop/common
     ./features/productivity
   ];
 }
