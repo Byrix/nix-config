@@ -3,6 +3,7 @@
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
+    ./drives.nix
 
     ../common/global
     ../common/users/byrix
