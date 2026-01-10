@@ -1,11 +1,13 @@
 { inputs, lib, pkgs, config, outputs, ... }: {
-  imports = []
+  imports = [
+    ../features/cli
+  ]
   ++ (builtins.attrValues outputs.homeManagerModules);
 
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "ca-derivations" ];
       warn-dirty = false;
     };
   };

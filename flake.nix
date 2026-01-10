@@ -49,6 +49,13 @@
       };
     };
 
-    homeConfigurations = {};
+    homeConfigurations = {
+      # Laptop
+      "byrix@optimus" = lib.homeManagerConfiguration {
+        modules = [ ./home/byrix/optimus.nix ./home/byrix/nixpkgs.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+    };
   };
 }
