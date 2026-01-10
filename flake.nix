@@ -11,6 +11,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     catppuccin.url = "github:catppuccin/nix/release-25.05";
   };
@@ -49,6 +52,13 @@
       };
     };
 
-    homeConfigurations = {};
+    homeConfigurations = {
+      # Laptop
+      "byrix@optimus" = lib.homeManagerConfiguration {
+        modules = [ ./home/byrix/optimus.nix ./home/byrix/nixpkgs.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+    };
   };
 }

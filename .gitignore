@@ -3,4 +3,5 @@ zapzap.nix
 proton-bridge.nix
 thunderbird.nix
 
-**sops**
+**.md
+!README.md
