@@ -22,7 +22,7 @@ in {
     knownHosts = lib.genAttrs hosts (hostname: {
       publicKeyFile = ../../${hostname}/ssh_host_ed25519_key.pub;
       extraHostNames = 
-        [ "${hostname}.byrix.local" ]
+        [ "${hostname}.byrix.dev" ]
         ++ (lib.optional (hostname == config.networking.hostName) "localhost" );
     });
   };

@@ -25,5 +25,5 @@
     };
   };
 
-  networking.domain = "byrix.local";
+  networking.domain = "byrix.dev";
 }
