@@ -4,4 +4,6 @@ proton-bridge.nix
 thunderbird.nix
 
 **sops**
-**gpg**
+
+**.md
+!README.md
