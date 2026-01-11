@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./global
     ./features/config/colours.nix
