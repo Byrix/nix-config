@@ -6,4 +6,6 @@
     ./features/desktop/common
     ./features/productivity
   ];
+
+  home.packages = [ pkgs.isoimagewriter ];
 }
