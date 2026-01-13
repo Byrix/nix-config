@@ -8,6 +8,15 @@ in {
       # Security 
       PasswordAuthentication = false;
       PermitRootLogin = "no";
+      AllowGroups = [ "allowssh" ];
+
+      # Remove stale sockets
+      StreamLocalBindUnlink = "yes";
+      # Allow forwarding ports 
+      GatewayPorts = "clientspecified";
+      # Forward WAYLAND_DISPLAY 
+      AcceptEnv = "WAYLAND_DISPLAY";
+      X11Forwarding = true;
     };
 
     hostKeys = [
@@ -17,6 +26,8 @@ in {
       }
     ];
   };
+
+  users.groups.allowssh = {};
 
   programs.ssh = {
     knownHosts = lib.genAttrs hosts (hostname: {
