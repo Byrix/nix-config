@@ -2,15 +2,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    sshKeys = [ "B3A1B6331AC196ADF9EC1AA4382C283A99CB9AF9" ];
-    enableExtraSocket = true;
-    pinentry.package = 
-      if config.gtk.enable 
-      then pkgs.pinentry-gnome3
-      else pkgs.pinentry-tty;
   };
-
-  home.packages = lib.optional config.gtk.enable pkgs.gcr;
 
   programs = let 
     fixGpg = 
@@ -25,7 +17,6 @@
 
     gpg = {
       enable = true;
-      settings.trust-model = "tofu+pgp";
       publicKeys = [{
         source = ../../pgp.asc;
         trust = 5;
