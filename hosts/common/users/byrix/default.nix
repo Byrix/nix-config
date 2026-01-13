@@ -5,7 +5,7 @@ in {
   users.users.byrix = {
     isNormalUser = true;
     description = "Sean";
-    hashedPasswordFile = config.sops.secrets.byrix-password.path;
+    hashedPassword = "$y$j9T$lG99VjY60ayaGUeFfNhTr0$h6qjqZp6fJhyU1X0/OdJXvAzWnbPt2PE5ZNbz/iYjt2";
     openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ./ssh.pub);
     
     extraGroups = ifTheyExist [ 
@@ -17,11 +17,6 @@ in {
       kdePackages.kate
       home-manager
     ];
-  };
-
-  sops.secrets.byrix-password = {
-    sopsFile = ../../secrets.yaml;
-    neededForUsers = true;
   };
 
   home-manager.users.byrix = import ../../../../home/byrix/${config.networking.hostName}.nix;
