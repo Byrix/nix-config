@@ -4,6 +4,7 @@
     ./nix.nix
     ./locale.nix
 
+    ./sops.nix
     ./openssh.nix
 
     ./colours.nix

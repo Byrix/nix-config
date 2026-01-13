@@ -1,12 +1,11 @@
 keys:
   - &users:
-    # TODO: Key gen
-    - &byrix 
+    - &byrix 754CB576088239B7
   - &hosts:
     - &megatron age159unpdrj3cwugus672aarlz3qzaufjg8jq4xv8t7tphm3jl5xpzsxm694h
 creation_rules:
-  - path_regex: hosts/common/secrets.ya?ml$
-    keygroups:
+  - path_regex: hosts/common/secrets.yaml$
+    key_groups:
     - age:
       - *megatron
       pgp:

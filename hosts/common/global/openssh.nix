@@ -11,7 +11,7 @@ in {
       AllowGroups = [ "allowssh" ];
 
       # Remove stale sockets
-      SteamLocalBindUnlink = "yes";
+      StreamLocalBindUnlink = "yes";
       # Allow forwarding ports 
       GatewayPorts = "clientspecified";
       # Forward WAYLAND_DISPLAY 

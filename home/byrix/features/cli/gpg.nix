@@ -2,8 +2,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    # TODO: Gen keys
-    sshKeys = [];
+    sshKeys = [ "382C283A99CB9AF9" ];
     enableExtraSocket = true;
     pinentry.package = 
       if config.gtk.enable 
@@ -28,10 +27,9 @@
       enable = true;
       settings.trust-model = "tofu+pgp";
       publicKeys = [{
-        # TODO: Again gen keys
         source = ../../pgp.asc;
         trust = 5;
       }];
     };
-  }
+  };
 }
