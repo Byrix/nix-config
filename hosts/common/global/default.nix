@@ -4,7 +4,7 @@
     ./nix.nix
     ./locale.nix
 
-    ./yubikey-gpg.nix
+    ./yubikey.nix
     ./openssh.nix
 
     ./colours.nix
