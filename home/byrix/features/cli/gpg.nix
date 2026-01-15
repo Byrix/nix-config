@@ -1,31 +1,30 @@
 { pkgs, config, lib, ... }: {
+
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    sshKeys = [ "B3A1B6331AC196ADF9EC1AA4382C283A99CB9AF9" ];
-    enableExtraSocket = true;
-    pinentry.package = 
-      if config.gtk.enable 
-      then pkgs.pinentry-gnome3
-      else pkgs.pinentry-tty;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    pinentry.package = pkgs.pinentry-curses;
+    pinentry.program = "pinentry";
   };
 
-  home.packages = lib.optional config.gtk.enable pkgs.gcr;
-
+  home.sessionVariables = {
+    GPG_TTY = "$(tty)";
+    FOO = "bar";
+  };
   programs = let 
-    fixGpg = 
-      /* bash */
-      ''gpgconf --launch gpg-agent'';
+    fixGpg = "gpgconf --launch gpg-agent";
   in {
     # Auto start gpg-agent if not already running (or tunneled)
     # https://www.gnupg.org/faq/whats-new-in-2.1.html#autostart
     # NOTE: Must update for extra shells as / if added
     bash.profileExtra = fixGpg;
+    bash.bashrcExtra = "export GPG_TTY=$(tty)";
     zsh.loginExtra = fixGpg;
 
     gpg = {
       enable = true;
-      settings.trust-model = "tofu+pgp";
       publicKeys = [{
         source = ../../pgp.asc;
         trust = 5;

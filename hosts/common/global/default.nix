@@ -4,6 +4,7 @@
     ./nix.nix
     ./locale.nix
 
+    ./yubikey.nix
     ./openssh.nix
 
     ./colours.nix

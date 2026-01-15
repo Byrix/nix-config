@@ -1,7 +1,16 @@
-{ outputs, lib, config, ... }: 
+{ outputs, lib, config, pkgs, ... }: 
 let 
   hosts = lib.attrNames outputs.nixosConfigurations;
 in {
+  environment.systemPackages = with pkgs; [
+    openssl
+    gnupg
+    pinentry-tty
+    veracrypt
+    opensc
+    pcsc-tools
+  ];
+
   services.openssh = {
     enable = true;
     settings = {
@@ -37,4 +46,6 @@ in {
         ++ (lib.optional (hostname == config.networking.hostName) "localhost" );
     });
   };
+
+  services.pcscd.enable = true;
 }
