@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }: {
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
-  services.yubikey-agent.enable = true;
-
   security.pam = {
     u2f = {
       enable = true;
@@ -28,7 +26,7 @@
     pcsc-tools
   ];
 
-  services.pcscd.enable = true;
+  # services.pcscd.enable = true;
 
   system.activationScripts.yubikey-setup = lib.stringAfter [ "users" ] ''
     mkdir -p /home/byrix/.config/Yubico

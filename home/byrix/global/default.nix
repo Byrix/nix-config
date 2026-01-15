@@ -24,5 +24,6 @@
     sessionVariables = {
       NH_FLAKE = "$HOME/.dotfiles";
     };
+    shell.enableShellIntegration = true;
   };
 }
