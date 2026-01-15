@@ -2,6 +2,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./nix.nix
+    ./grub-boot.nix
     ./locale.nix
 
     ./openssh.nix
