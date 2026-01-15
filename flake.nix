@@ -51,6 +51,10 @@
         specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/rlyeh ];
       };
+      giga = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [ ./hosts/giga ];
+      };
     };
 
     homeConfigurations = {
