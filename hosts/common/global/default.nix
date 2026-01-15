@@ -5,6 +5,7 @@
     ./grub-boot.nix
     ./locale.nix
 
+    ./yubikey.nix
     ./openssh.nix
 
     ./colours.nix
