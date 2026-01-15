@@ -13,10 +13,7 @@ in {
       "wheel"
       "allowssh" 
     ];
-    packages = with pkgs; [
-      kdePackages.kate
-      home-manager
-    ];
+    packages = [ pkgs.home-manager ];
   };
 
   home-manager.users.byrix = import ../../../../home/byrix/${config.networking.hostName}.nix;
