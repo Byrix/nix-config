@@ -12,7 +12,6 @@
     ../common/optional/plasma.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
-    ../common/optional/grub-boot.nix
   ];
 
   system.stateVersion = "25.05";
