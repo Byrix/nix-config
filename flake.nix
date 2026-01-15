@@ -47,6 +47,10 @@
         specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/megatron ];
       };
+      rlyeh = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [ ./hosts/rlyeh ];
+      };
     };
 
     homeConfigurations = {
