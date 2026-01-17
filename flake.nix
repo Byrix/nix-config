@@ -8,6 +8,7 @@
 
     systems.url = "github:nix-systems/default-linux";
     hardware.url = "github:nixos/nixos-hardware";
+    nixos-rpi.url = "github:nvmd/nixos-raspberrypi/main";
 
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +20,7 @@
     self,
     nixpkgs,
     home-manager,
+    nix-rpi,
     systems,
     ...
   } @ inputs: let
@@ -47,7 +49,8 @@
         specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/megatron ];
       };
-      rlyeh = lib.nixosSystem {
+      # Server 1 (worker)
+      rlyeh = nix-rpi.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/rlyeh ];
       };

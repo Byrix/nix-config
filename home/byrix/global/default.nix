@@ -1,6 +1,7 @@
 { inputs, lib, pkgs, config, outputs, ... }: {
   imports = [
     ../features/cli
+    ../features/config/colours.nix
   ]
   ++ (builtins.attrValues outputs.homeManagerModules);
 
