@@ -47,6 +47,11 @@
         specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/megatron ];
       };
+      # Laptop
+      optimus = lib.nixosSystem {
+	specialArgs = { inherit inputs outputs; };
+        modules = [ ./hosts/optimus ];
+      };
       rlyeh = lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/rlyeh ];
