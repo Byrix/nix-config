@@ -3,6 +3,6 @@
     ./git.nix
     ./ssh.nix
     ./gpg.nix
-    ./bash.nix
+    ./fish.nix
   ];
 }

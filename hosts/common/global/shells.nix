@@ -1,4 +1,3 @@
 { 
-  bash.enable = true;
-  fish.enable = true;
+  programs.fish.enable = true;
 }
