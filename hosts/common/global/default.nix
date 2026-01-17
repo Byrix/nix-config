@@ -6,6 +6,7 @@
 
     ./yubikey.nix
     ./openssh.nix
+    ./shells.nix
 
     ./colours.nix
 
