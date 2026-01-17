@@ -8,8 +8,8 @@
     ../common/global
     ../common/users/byrix
 
+    ../common/optional/desktops/plasma.nix
     ../common/optional/gamemode.nix
-    ../common/optional/plasma.nix
     ../common/optional/pipewire.nix
     ../common/optional/steam.nix
   ];
