@@ -23,10 +23,9 @@
       };
 
       # TODO: Extensions required 3rd party repo
-      # extensions = {
-      #   force = true;
-      #   packages = [];
-      # };
+      extensions = {
+        force = true;
+      };
     };
   };
 }
