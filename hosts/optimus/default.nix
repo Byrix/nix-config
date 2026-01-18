@@ -30,4 +30,5 @@
   networking.networkmanager.enable = true;
 
   hardware.graphics.enable = true;
+  programs.firefox.enable = true;
 }
