@@ -6,4 +6,6 @@
       env.TERM = "xterm-256color";
     };
   };
+
+  wayland.windowManager.hyprland.settings = { "$terminal" = "alacritty"; };
 }

@@ -7,6 +7,7 @@
     ../common/users/byrix
 
     ../common/optional/desktops/gnome.nix
+    ../common/optional/desktops/hyprland.nix
     ../common/optional/pipewire.nix
   ];
 

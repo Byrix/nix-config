@@ -5,4 +5,6 @@
     enableFishIntegration = true;
     enableZshIntegration = true;
   };
+
+  wayland.windowManager.hyprland.settings = { "$terminal" = "ghostty +new-window"; };
 }
