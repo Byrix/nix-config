@@ -8,6 +8,7 @@
 
     ../common/optional/desktops/gnome.nix
     ../common/optional/pipewire.nix
+    ../common/optional/docker.nix
   ];
 
   system.stateVersion = "25.05";
@@ -29,4 +30,5 @@
   networking.networkmanager.enable = true;
 
   hardware.graphics.enable = true;
+  programs.firefox.enable = true;
 }

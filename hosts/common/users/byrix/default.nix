@@ -12,6 +12,7 @@ in {
       "networkmanager" 
       "wheel"
       "allowssh" 
+      "docker"
     ];
     packages = [ pkgs.home-manager ];
   };
