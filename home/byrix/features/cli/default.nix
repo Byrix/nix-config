@@ -5,5 +5,6 @@
     ./gpg.nix
     ./fish.nix
     ./starship
+    ./nixvim
   ];
 }

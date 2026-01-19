@@ -13,6 +13,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     catppuccin.url = "github:catppuccin/nix/release-25.05";
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -49,7 +51,7 @@
       };
       # Laptop
       optimus = lib.nixosSystem {
-	specialArgs = { inherit inputs outputs; };
+	      specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/optimus ];
       };
       rlyeh = lib.nixosSystem {
