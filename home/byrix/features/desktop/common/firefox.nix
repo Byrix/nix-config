@@ -28,4 +28,6 @@
       };
     };
   };
+
+  catppuccin.firefox.enable = false;
 }

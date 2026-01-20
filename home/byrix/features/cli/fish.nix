@@ -31,5 +31,5 @@
     };
   };
 
-  home.packages = with pkgs; [ grc fzf ];
+  home.packages = with pkgs; [ grc ];
 }
