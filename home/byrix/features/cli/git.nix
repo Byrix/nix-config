@@ -8,8 +8,16 @@
       format = "openpgp";
       signByDefault = true;
     };
-    extraConfig ={
+    extraConfig = {
       init.defaultBranch = "main";
     };
+    ignores = [
+      "**/*.env"
+      "!**/*.env.example"
+
+      "**/node_modules"
+      "**/venv"
+      "**/*conda"
+    ];
   };
 }
