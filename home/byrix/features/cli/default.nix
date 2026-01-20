@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./git.nix
     ./ssh.nix
@@ -7,6 +7,14 @@
     ./starship
     ./direnv.nix
     ./fzf.nix
+  ];
+
+  programs = {
+    htop.enable = true;
+  };
+
+  home.packages = with pkgs; [
+    neofetch
   ];
 
   home.shellAliases = {
