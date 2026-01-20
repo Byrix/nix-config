@@ -6,7 +6,8 @@
     ../common/global
     ../common/users/byrix
 
-    ../common/optional/desktops/gnome.nix
+    # ../common/optional/desktops/gnome.nix
+    ../common/optional/desktops/sddm.nix
     ../common/optional/pipewire.nix
     ../common/optional/docker.nix
   ];
