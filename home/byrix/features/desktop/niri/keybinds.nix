@@ -1,11 +1,15 @@
 { pkgs, config, ... }: {
-  programs.niri.settings.binds = with config.lib.niri.actions; {
-    "SUPER+Q".action = close-window;
-    "SUPER+Space".action = toggle-window-floating;
-    "SUPER+F".action = fullscreen-window;
+  programs.niri.settings = {
+    input.mod-key = "Super";
 
-    "SUPER+R".action = spawn "${pkgs.tofi}/bin/tofi-drun";
-    "SUPER+Return".action = spawn "${pkgs.ghostty}/bin/ghostty";
-    "SUPER+B".action = spawn "${pkgs.firefox}/bin/firefox";
+    binds = with config.lib.niri.actions; {
+      "Mod+Q".action = close-window;
+      "Mod+Space".action = toggle-window-floating;
+      "Mod+F".action = fullscreen-window;
+
+      "Mod+R".action = spawn "${pkgs.tofi}/bin/tofi-drun";
+      "Mod+Return".action = spawn "${pkgs.ghostty}/bin/ghostty";
+      "Mod+B".action = spawn "${pkgs.firefox}/bin/firefox";
+    };
   };
-}
+} 
