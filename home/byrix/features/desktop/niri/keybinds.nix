@@ -5,7 +5,7 @@
     "SUPER+F".action = fullscreen-window;
 
     "SUPER+R".action = spawn "${pkgs.tofi}/bin/tofi-drun";
-    "SUPER+Return".action = spawn "${pkgs.ghostty}/bin/ghostty +new-window";
+    "SUPER+Return".action = spawn "${pkgs.ghostty}/bin/ghostty";
     "SUPER+B".action = spawn "${pkgs.firefox}/bin/firefox";
   };
 }
