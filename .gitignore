@@ -5,3 +5,4 @@ thunderbird.nix
 
 **.md
 !README.md
+!TODO.md
