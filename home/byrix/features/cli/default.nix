@@ -19,8 +19,8 @@
       neofetch
     ];
     shellAliases = {
-      "ns" = "nh os switch"
-      "nt" = "nh os test"
+      "ns" = "nh os switch";
+      "nt" = "nh os test";
       "where" = "which";
     };
   };
