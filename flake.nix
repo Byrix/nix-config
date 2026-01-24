@@ -13,6 +13,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     catppuccin.url = "github:catppuccin/nix/release-25.05";
+    direnv-instant.url = "github:Mic92/direnv-instant";
   };
 
   outputs = {
