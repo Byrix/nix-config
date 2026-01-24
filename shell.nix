@@ -1,6 +1,7 @@
-{ pkgs ? import <nixpkgs> {}, ... }: {
+{ pkgs ? import <nixpkgs> { }, ... }: {
   default = pkgs.mkShell {
-    NIX_CONFIG = "extra-experimental-features = nix-command flakes ca-derivations";
+    NIX_CONFIG =
+      "extra-experimental-features = nix-command flakes ca-derivations";
     nativeBuildInputs = with pkgs; [
       nix
       home-manager
@@ -9,11 +10,6 @@
       gnupg
     ];
 
-    packages = with pkgs; [
-      nil
-      nixfmt
-      vscode-extensions.jnoortheen.nix-ide
-      vimPlugins.nvim-treesitter-parsers.nix
-    ];
+    packages = with pkgs; [ nil nixfmt ];
   };
 }
