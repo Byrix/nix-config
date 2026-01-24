@@ -10,6 +10,6 @@
       gnupg
     ];
 
-    packages = with pkgs; [ nil nixfmt ];
+    packages = with pkgs; [ nil nixd nixfmt ];
   };
 }
