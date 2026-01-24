@@ -1,8 +1,6 @@
 { inputs, lib, pkgs, config, outputs, ... }: {
-  imports = [
-    ../features/cli
-  ]
-  ++ (builtins.attrValues outputs.homeManagerModules);
+  imports = [ ../features/cli ]
+    ++ (builtins.attrValues outputs.homeManagerModules);
 
   nix = {
     package = lib.mkDefault pkgs.nix;
@@ -25,5 +23,17 @@
       NH_FLAKE = "${config.home.homeDirectory}/.nix-config";
     };
     shell.enableShellIntegration = true;
+  };
+
+  fontProfiles = {
+    enable = true;
+    regular = {
+      name = "FiraCode Nerd Font";
+      package = pkgs.nerd-fonts.fira-code;
+    };
+    monospace = {
+      name = "FiraMono Nerd Font";
+      package = pkgs.nerd-fonts.fira-mono;
+    };
   };
 }
