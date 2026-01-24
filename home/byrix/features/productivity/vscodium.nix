@@ -3,8 +3,14 @@
     enable = true;
     package = pkgs.vscodium;
 
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      gruntfuggly.todo-tree
-    ];
+    profiles.default = {
+      enableUpdateCheck = false;
+
+      extensions = with pkgs.vscode-extensions; [
+        gruntfuggly.todo-tree
+        gitlab.gitlab-workflow
+        mkhl.direnv
+      ];
+    };
   };
 }
