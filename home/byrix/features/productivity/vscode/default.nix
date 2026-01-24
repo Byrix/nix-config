@@ -5,6 +5,7 @@
 
     profiles.default = {
       enableUpdateCheck = false;
+      userSettings = ./userSettings.json;
 
       extensions = with pkgs.vscode-extensions; [
         mkhl.direnv
