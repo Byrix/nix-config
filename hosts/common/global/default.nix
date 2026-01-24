@@ -1,7 +1,7 @@
 { inputs, outputs, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./nix.nix
+    ./nix
     ./locale.nix
 
     ./yubikey.nix

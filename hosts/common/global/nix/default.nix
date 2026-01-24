@@ -5,6 +5,11 @@
 }: let
   flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
 in {
+  imports = [
+    ./nix-helper.nix
+    ./nix-ld.nix
+  ];
+  
   nix = {
     settings = {
       auto-optimise-store = lib.mkDefault true;
@@ -24,8 +29,8 @@ in {
     gc = {
       automatic = true;
       dates = "daily";
-      # Keep generations from the past week
       options = "--delete-older-than 7d";
+      persistent = true;
     };
 
     # Add each flake input as a registry and nix_path
