@@ -12,12 +12,11 @@
 
   programs = {
     htop.enable = true;
+    jq.enable = true;
   };
 
   home = {
-    packages = with pkgs; [
-      neofetch
-    ];
+    packages = with pkgs; [ neofetch ];
     shellAliases = {
       "ns" = "nh os switch";
       "nt" = "nh os test";
