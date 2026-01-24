@@ -8,6 +8,7 @@
     ./direnv.nix
     ./fzf.nix
     ./neovim.nix
+    ./eza.nix
   ];
 
   programs = {
