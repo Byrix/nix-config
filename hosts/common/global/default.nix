@@ -27,5 +27,5 @@
     };
   };
 
-  networking.domain = "byrix.dev";
+  networking.domain = "home.arpa";
 }
