@@ -4,7 +4,7 @@
     clean = {
       enable = true;
       dates = "weekly";
-      options = "-K 7d";
+      extraArgs = "-K 7d";
     };
   };
 }
