@@ -2,6 +2,7 @@
   programs.zed-editor.userSettings = {
     # === EDITOR ======================
     cursor_shape = "underline";
+    active_pane_modifiers.inactive_opacity = 0.6;
 
     # --- Behaviour ---------
     pane_split_direction_horizontal = "down";
@@ -61,6 +62,7 @@
     };
     collaboration_panel.button = false;
     git_panel.sort_by_path = true;
+    git_panel.dock = "right";
     outline_panel.scrollbar.show = "never";
   };
 }
