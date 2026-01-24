@@ -21,6 +21,9 @@
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "25.05";
     sessionPath = [ "$HOME/.local/bin" ];
+    sessionVariables = {
+      NH_FLAKE = "${config.home.homeDirectory}/.nix-config";
+    };
     shell.enableShellIntegration = true;
   };
 }

@@ -19,8 +19,8 @@
       neofetch
     ];
     shellAliases = {
-      "update" = "sudo nixos-rebuild switch --flake /home/$(whoami)/.nix-config/.#$(hostname)";
-      "testnix" = "sudo nixos-rebuild test --flake /home/$(whoami)/.nix-config/.#$(hostname)";
+      "ns" = "nh os switch"
+      "nt" = "nh os test"
       "where" = "which";
     };
   };
