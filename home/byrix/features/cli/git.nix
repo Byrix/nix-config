@@ -19,6 +19,8 @@
       "**/venv"
       "**/*conda"
       "**/.direnv"
+      "**/.zed"
+      "**/.vscode"
     ];
   };
 }
