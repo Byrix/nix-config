@@ -1,5 +1,5 @@
 {
-  userSettings = {
+  programs.zed-editor.userSettings = {
     # === EDITOR ======================
     cursor_shape = "underline";
 

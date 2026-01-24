@@ -1,9 +1,9 @@
 {
+  imports = [ ./appearence.nix ./lsp.nix ./keybinds.nix ];
+
   programs.zed-editor = {
     enable = true;
     installRemoteServer = true;
-
-    imports = [ ./appearence.nix ./lsp.nix ];
 
     userSettings = {
       tab_size = 2;
