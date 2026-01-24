@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    # package = pkgs.vscodium;
 
     profiles.default = {
       enableUpdateCheck = false;
@@ -17,6 +17,7 @@
         naumovs.color-highlight
         aaron-bond.better-comments
         alefragnani.project-manager
+        ms-vscode-remote.remote-ssh
         christian-kohler.path-intellisense
       ];
     };

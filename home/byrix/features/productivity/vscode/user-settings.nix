@@ -21,7 +21,7 @@
   "workbench.panel.defaultLocation" = "right";
   "workbench.editor.revealIfOpen" = true;
 
-  "window.density.editorTabHeight" = "compact";
+  "window.density.editorTabHeight" = "default";
 
   "gitlab.duoCodeSuggestions.enabled" = false;
   "gitlab.duoChat.enabled" = false;
