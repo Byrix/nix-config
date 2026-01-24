@@ -1,0 +1,28 @@
+{
+  "editor.tabSize" = 2;
+  "editor.formatOnSave" = true;
+  "editor.allowVariableLineHeights" = false;
+  "editor.autoIndentOnPaste" = true;
+
+  "files.trimFinalNewlines" = true;
+  "files.insertFinalNewline" = true;
+  "files.autoSave" = "onFocusChange";
+  "files.autoSaveWhenNoErrors" = true;
+  "files.trimTrailingWhitespace" = true;
+  "files.readonlyFromPermissions" = true;
+  "files.readonlyInclude" = {
+    "flake.lock" = true;
+  };
+
+  "workbench.tips.enabled" = false;
+  "workbench.panel.showLabels" = false;
+  "workbench.startupEditor" = "terminal";
+  "workbench.panel.opensMaximized" = "never";
+  "workbench.panel.defaultLocation" = "right";
+  "workbench.editor.revealIfOpen" = true;
+
+  "window.density.editorTabHeight" = "compact";
+
+  "gitlab.duoCodeSuggestions.enabled" = false;
+  "gitlab.duoChat.enabled" = false;
+}

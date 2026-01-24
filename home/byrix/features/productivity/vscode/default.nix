@@ -1,11 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
 
     profiles.default = {
       enableUpdateCheck = false;
-      userSettings = ./userSettings.json;
+      userSettings = import ./user-settings.nix;
 
       extensions = with pkgs.vscode-extensions; [
         mkhl.direnv
