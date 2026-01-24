@@ -38,8 +38,9 @@
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home;
 
-    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
-    formatter = forEachSystem (pkgs: pkgs.alejandra);
+    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+    devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
+    formatter = forEachSystem (pkgs: pkgs.nixfmt);
     overlays = import ./overlays {inherit inputs outputs;};
 
     nixosConfigurations = {
