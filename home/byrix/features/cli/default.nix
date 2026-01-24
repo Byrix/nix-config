@@ -7,6 +7,7 @@
     ./starship
     ./direnv.nix
     ./fzf.nix
+    ./neovim.nix
   ];
 
   programs = {
