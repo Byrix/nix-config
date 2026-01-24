@@ -14,12 +14,14 @@
     htop.enable = true;
   };
 
-  home.packages = with pkgs; [
-    neofetch
-  ];
-
-  home.shellAliases = {
-    "update" = "sudo nixos-rebuild switch --flake /home/$(whoami)/.nix-config/.#$(hostname)";
-    "updatetest" = "sudo nixos-rebuild test --flake /home/$(whoami)/.nix-config/.#$(hostname)";
+  home = {
+    packages = with pkgs; [
+      neofetch
+    ];
+    shellAliases = {
+      "update" = "sudo nixos-rebuild switch --flake /home/$(whoami)/.nix-config/.#$(hostname)";
+      "testnix" = "sudo nixos-rebuild test --flake /home/$(whoami)/.nix-config/.#$(hostname)";
+      "where" = "which";
+    };
   };
 }
