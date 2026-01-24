@@ -1,6 +1,6 @@
 {
   imports = [
     ./libre-office.nix
-    ./vscodium
+    ./vscode
   ];
 }
