@@ -1,5 +1,8 @@
 {
-  programs.zed-editor.userSettings = {
-    lsp = { nil = { settings.formatting.command = [ "nixfmt" ]; }; };
+  programs.zed-editor = {
+    extensions = [ "nix" ];
+    userSettings = {
+      lsp = { nil = { settings.formatting.command = [ "nixfmt" ]; }; };
+    };
   };
 }
