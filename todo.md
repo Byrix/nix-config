@@ -22,3 +22,4 @@ Features yet to be implemented or looked into
 ### Nix
 - SOPS
 - Hydra?
+- Stylix
