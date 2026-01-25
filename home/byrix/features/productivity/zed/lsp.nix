@@ -8,7 +8,13 @@
       "gitlab-ci-ls"
     ];
     userSettings = {
-      lsp = { nil = { settings.formatting.command = [ "nixfmt" ]; }; };
+      lsp = {
+        nil = { settings.formatting.command = [ "nixfmt" ]; };
+        markdownlint.settings = {
+          MD022 = false;
+          MD032 = false;
+        };
+      };
     };
   };
 }

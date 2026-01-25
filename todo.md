@@ -1,4 +1,6 @@
-# Home
+# TODO List
+Features yet to be implemented or looked into
+
 ## Desktop
 - Niri: keybinds
 - ~~VS Code~~
@@ -8,15 +10,15 @@
   - ~~Nix-ify user settings~~
 - Firefox: addons
 
-## CLI
+### CLI
 - ~~Git: setup global ignores for direnv caches~~
 - ~~direnv-instant flake~~
 - pangolin client
 
-# NixOS
-## Hardware
+## NixOS
+### Hardware
 - OpenRGB
 
-## Nix
+### Nix
 - SOPS
 - Hydra?
