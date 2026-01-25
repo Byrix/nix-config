@@ -14,6 +14,7 @@
 
     catppuccin.url = "github:catppuccin/nix/release-25.05";
     direnv-instant.url = "github:Mic92/direnv-instant";
+    niri.url = "github:sodiboo/niri-flake";
   };
 
   outputs = {
@@ -51,7 +52,7 @@
       };
       # Laptop
       optimus = lib.nixosSystem {
-	specialArgs = { inherit inputs outputs; };
+	      specialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/optimus ];
       };
       rlyeh = lib.nixosSystem {

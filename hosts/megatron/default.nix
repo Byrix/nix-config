@@ -8,6 +8,7 @@
     ../common/global
     ../common/users/byrix
 
+    ../common/optional/desktops/niri.nix
     ../common/optional/desktops/plasma.nix
     ../common/optional/gamemode.nix
     ../common/optional/pipewire.nix
