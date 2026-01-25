@@ -1,18 +1,19 @@
-# Always include for standalone HM 
-{ outputs, lib, inputs, ... }: let
-  flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+# Always include for standalone HM
+{ outputs, lib, inputs, ... }:
+let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
 in {
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" "ca-derivations" ];
       warn-dirty = false;
-      flake-registry = "";  # Disable global registry
+      flake-registry = ""; # Disable global registry
     };
     registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
   };
 
   home.sessionVariables = {
-    NIX_PATH = li.concatStringSep ":" (lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs);
+    NIX_PATH = lib.concatStringSep ":"
+      (lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs);
   };
 
   nixpkgs = {

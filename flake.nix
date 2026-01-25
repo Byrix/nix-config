@@ -17,61 +17,55 @@
     niri.url = "github:sodiboo/niri-flake";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    systems,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib;
-    forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
-    pkgsFor = lib.genAttrs (import systems) (
-      system:
+  outputs = { self, nixpkgs, home-manager, systems, ... }@inputs:
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
+      forEachSystem = f:
+        lib.genAttrs (import systems) (system: f pkgsFor.${system});
+      pkgsFor = lib.genAttrs (import systems) (system:
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-        }
-    );
-  in {
-    inherit lib;
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home;
+        });
+    in {
+      inherit lib;
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home;
 
-    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
-    devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
-    formatter = forEachSystem (pkgs: pkgs.nixfmt);
-    overlays = import ./overlays {inherit inputs outputs;};
+      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+      devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
+      formatter = forEachSystem (pkgs: pkgs.nixfmt-rfc-style);
+      overlays = import ./overlays { inherit inputs outputs; };
 
-    nixosConfigurations = {
-      # Desktop
-      megatron = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/megatron ];
+      nixosConfigurations = {
+        # Desktop
+        megatron = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/megatron ];
+        };
+        # Laptop
+        optimus = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/optimus ];
+        };
+        rlyeh = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/rlyeh ];
+        };
+        giga = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/giga ];
+        };
       };
-      # Laptop
-      optimus = lib.nixosSystem {
-	      specialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/optimus ];
-      };
-      rlyeh = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/rlyeh ];
-      };
-      giga = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/giga ];
+
+      homeConfigurations = {
+        # Laptop
+        "byrix@optimus" = lib.homeManagerConfiguration {
+          modules = [ ./home/byrix/optimus.nix ./home/common/nixpkgs.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+        };
       };
     };
-
-    homeConfigurations = {
-      # Laptop
-      "byrix@optimus" = lib.homeManagerConfiguration {
-        modules = [ ./home/byrix/optimus.nix ./home/byrix/nixpkgs.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-    };
-  };
 }
