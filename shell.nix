@@ -10,6 +10,6 @@
       gnupg
     ];
 
-    packages = with pkgs; [ nil nixd nixfmt ];
+    packages = with pkgs; [ nil nixd nixfmt-rfc-style ];
   };
 }
