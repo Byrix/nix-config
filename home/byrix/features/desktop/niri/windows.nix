@@ -15,16 +15,16 @@
       border = {
         width = 2;
         # active = "#a6da95";
-        # inactive = null;
-        # urgent = "#ed8796";
+        inactive = { color = "#6e738d"; };
+        urgent = { color = "#ee99a0"; };
       };
 
-      # focus-ring = {
-      #   width = 2;
-      #   active = "#a6da95";
+      focus-ring = {
+        width = 2;
+        active = { color = "#c6a0f6"; };
       #   inactive = "#6e738d";
       #   urgent = "#ed8796";
-      # };
+      };
 
       struts = {
         top = 4;
