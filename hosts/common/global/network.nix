@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   networking = {
     domain = "home.arpa";
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
   };
 }
