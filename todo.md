@@ -23,3 +23,4 @@ Features yet to be implemented or looked into
 - SOPS
 - Hydra?
 - Stylix
+- Personal cache
