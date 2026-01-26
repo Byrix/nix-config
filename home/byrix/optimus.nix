@@ -19,7 +19,7 @@
   monitors = [
     {
       name = "eDP-1";
-      height = 1440;
+      height = 1200;
       width = 1920;
       primary = true;
       position = { x=0; y=0; };

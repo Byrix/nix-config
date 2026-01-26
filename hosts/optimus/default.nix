@@ -1,4 +1,5 @@
-{ config, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   imports = [
     inputs.hardware.nixosModules.dell-xps-13-9315
     ./hardware-configuration.nix
@@ -6,6 +7,7 @@
     ../common/global
     ../common/users/byrix
 
+    ../common/optional/desktops/niri.nix
     ../common/optional/desktops/plasma.nix
     ../common/optional/pipewire.nix
     ../common/optional/docker.nix
