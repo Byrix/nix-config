@@ -9,6 +9,8 @@
     ./fzf.nix
     ./neovim.nix
     ./eza.nix
+
+    ./ranger.nix
   ];
 
   programs = {
