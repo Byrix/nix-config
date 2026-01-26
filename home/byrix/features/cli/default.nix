@@ -22,6 +22,7 @@
       "ns" = "nh os switch";
       "nt" = "nh os test";
       "where" = "which";
+      "lg" = "lazygit";
     };
   };
 }
