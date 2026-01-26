@@ -1,8 +1,10 @@
-{ inputs, outputs, ... }: {
+{ inputs, outputs, ... }:
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./nix
     ./locale.nix
+    ./network.nix
 
     ./yubikey.nix
     ./openssh.nix
@@ -26,6 +28,4 @@
       allowUnfree = true;
     };
   };
-
-  networking.domain = "home.arpa";
 }
