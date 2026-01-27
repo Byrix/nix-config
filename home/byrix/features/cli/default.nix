@@ -8,7 +8,8 @@
     ./starship
     ./direnv.nix
     ./fzf.nix
-    ./neovim.nix
+    # ./neovim.nix
+    ./nixvim
     ./eza.nix
 
     ./ranger.nix
