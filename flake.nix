@@ -15,20 +15,30 @@
     catppuccin.url = "github:catppuccin/nix/release-25.05";
     direnv-instant.url = "github:Mic92/direnv-instant";
     niri.url = "github:sodiboo/niri-flake";
+    nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = { self, nixpkgs, home-manager, systems, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      systems,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
-      forEachSystem = f:
-        lib.genAttrs (import systems) (system: f pkgsFor.${system});
-      pkgsFor = lib.genAttrs (import systems) (system:
+      forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+      pkgsFor = lib.genAttrs (import systems) (
+        system:
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-        });
-    in {
+        }
+      );
+    in
+    {
       inherit lib;
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home;
@@ -62,7 +72,10 @@
       homeConfigurations = {
         # Laptop
         "byrix@optimus" = lib.homeManagerConfiguration {
-          modules = [ ./home/byrix/optimus.nix ./home/common/nixpkgs.nix ];
+          modules = [
+            ./home/byrix/optimus.nix
+            ./home/common/nixpkgs.nix
+          ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
         };
