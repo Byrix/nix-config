@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }:
+{
   imports = [
     ./git.nix
     ./ssh.nix
@@ -16,6 +17,7 @@
   programs = {
     htop.enable = true;
     jq.enable = true;
+    lazydocker = config.nixos.virtualisation.docker.enable;
   };
 
   home = {
