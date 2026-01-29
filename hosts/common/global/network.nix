@@ -3,6 +3,6 @@
   networking = {
     domain = "byrix.dev";
     useDHCP = lib.mkDefault true;
-    networkmanager.enable = lib.mkDefault false;
+    networkmanager.enable = lib.mkDefault true;
   };
 }
