@@ -17,7 +17,7 @@
   programs = {
     htop.enable = true;
     jq.enable = true;
-    lazydocker = config.nixos.virtualisation.docker.enable;
+    # lazydocker = config.nixos.virtualisation.docker.enable;
   };
 
   home = {
