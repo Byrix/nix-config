@@ -1,7 +1,8 @@
 { lib, ... }:
 {
   networking = {
-    domain = "home.arpa";
+    domain = "byrix.dev";
     useDHCP = lib.mkDefault true;
+    networkmanager.enable = lib.mkDefault false;
   };
 }

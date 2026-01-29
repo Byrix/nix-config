@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   imports = [
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
@@ -30,8 +36,23 @@
     };
   };
 
-  networking.hostName = "megatron";
-  networking.networkmanager.enable = true;
+  networking =
+    let
+      eth = "enp34s0";
+    in
+    {
+      hostName = "megatron";
+      defaultGateway = {
+        address = "192.168.1.1";
+        interface = eth;
+      };
+      interfaces."${eth}".ipv4.addresses = [
+        {
+          address = "192.168.1.10";
+          prefixLength = 24;
+        }
+      ];
+    };
 
   programs.firefox.enable = true;
   hardware = {
