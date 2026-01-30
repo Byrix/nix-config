@@ -4,9 +4,20 @@
 
   programs.nixvim = {
     enable = true;
-    colorschemes.catppuccin.enable = true;
-
     imports = [ ./keybinds.nix ];
+
+    colorschemes.catppuccin = {
+      enable = true;
+      settings = {
+        flavour = "macchiato";
+        transparent_background = true;
+      };
+    };
+
+    dependencies = {
+      fzf.enable = true;
+      tree-sitter.enable = true;
+    };
 
     opts = {
       termguicolors = true;
