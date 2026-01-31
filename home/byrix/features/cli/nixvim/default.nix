@@ -78,7 +78,7 @@
         desc = "Highlight when yanking text";
         group = "highlight-yank";
         callback = {
-          __raw = ''function() vim.highlight.on_yank() end'';
+          __raw = "function() vim.highlight.on_yank() end";
         };
       }
     ];
@@ -89,5 +89,8 @@
     };
   };
 
-  home.sessionVariables.EDITOR = "nvim";
+  home = {
+    sessionVariables.EDITOR = "nvim";
+    shellAliases.vim = "nvim";
+  };
 }
