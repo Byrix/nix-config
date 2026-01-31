@@ -1,0 +1,46 @@
+{
+  imports = [
+    ./cmp.nix
+    ./conform.nix
+    ./telescope.nix
+    ./indent-blankline.nix
+    ./treesitter.nix
+  ];
+
+  plugins = {
+    # Editor
+    nvim-autopairs.enable = true;
+    neogen.enable = true;
+    none-ls.enable = true;
+    otter.enable = true;
+    lspconfig.enable = true;
+
+    # Keybinds
+    which-key.enable = true;
+    comment.enable = true;
+
+    # Git
+    diffview.enable = true;
+    gitsigns.enable = true;
+    git-conflict.enable = true;
+    lazygit.enable = true;
+
+    # Visuals & UI
+    lualine.enable = true;
+    dropbar.enable = true;
+    colorizer.enable = true;
+    web-devicons.enable = true;
+    render-markdown.enable = true;
+    todo-comments = {
+      enable = true;
+      settings.signs = true;
+    };
+    toggleterm = {
+      enable = true;
+      settings = {
+        direction = "float";
+        open_mapping = "[[<C-\\>]]";
+      };
+    };
+  };
+}
