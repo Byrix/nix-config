@@ -4,7 +4,10 @@
 
   programs.nixvim = {
     enable = true;
-    imports = [ ./keybinds.nix ];
+    imports = [
+      ./keybinds.nix
+      ./plugins
+    ];
 
     colorschemes.catppuccin = {
       enable = true;
@@ -17,6 +20,8 @@
     dependencies = {
       fzf.enable = true;
       tree-sitter.enable = true;
+      # fd.enable = true;
+      ripgrep.enable = true;
     };
 
     opts = {
