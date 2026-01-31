@@ -5,6 +5,7 @@
     ./telescope.nix
     ./indent-blankline.nix
     ./treesitter.nix
+    ./projections.nix
   ];
 
   plugins = {
