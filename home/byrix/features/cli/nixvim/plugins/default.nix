@@ -5,7 +5,7 @@
     ./telescope.nix
     ./indent-blankline.nix
     ./treesitter.nix
-    ./projections.nix
+    ./project.nix
     ./nvim-tree.nix
   ];
 

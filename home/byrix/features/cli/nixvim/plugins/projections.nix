@@ -1,3 +1,5 @@
+# projections.nvim appears to be abandoned, try project-nvim instead
+# https://github.com/GnikDroy/projections.nvim/
 {
   plugins.projections = {
     enable = true;
