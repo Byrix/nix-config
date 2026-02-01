@@ -20,7 +20,7 @@
     dependencies = {
       fzf.enable = true;
       tree-sitter.enable = true;
-      # fd.enable = true;
+      fd.enable = true;
       ripgrep.enable = true;
     };
 
