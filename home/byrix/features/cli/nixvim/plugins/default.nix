@@ -6,6 +6,7 @@
     ./indent-blankline.nix
     ./treesitter.nix
     ./projections.nix
+    ./nvim-tree.nix
   ];
 
   plugins = {
@@ -31,6 +32,7 @@
     lualine.enable = true;
     dropbar.enable = true;
     colorizer.enable = true;
+    illuminate.enable = true;
     web-devicons.enable = true;
     render-markdown.enable = true;
     todo-comments = {
