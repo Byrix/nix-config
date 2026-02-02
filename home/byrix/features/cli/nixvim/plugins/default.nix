@@ -25,8 +25,11 @@
     diffview.enable = true;
     gitsigns.enable = true;
     git-conflict.enable = true;
-    gitblame.enable = true;
     lazygit.enable = true;
+    gitblame = {
+      enable = true;
+      settings.enabled = false;
+    };
 
     # Visuals & UI
     lualine.enable = true;
