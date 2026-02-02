@@ -1,4 +1,11 @@
-{ inputs, pkgs, lib, config, ... }: {
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   imports = [
     inputs.niri.homeModules.niri
     ./keybinds.nix
@@ -6,6 +13,7 @@
 
     ../common/tofi.nix
     ../common/waybar.nix
+    ../common/wleave.nix
   ];
 
   programs.niri = {
@@ -16,19 +24,21 @@
       prefer-no-csd = true;
       hotkey-overlay.skip-at-startup = true;
 
-      outputs = lib.listToAttrs (map (m: {
-        name = m.name;
-        value = {
-          mode = {
-            width = m.width;
-            height = m.height;
-            refresh = (0.0 + m.refreshRate); # Refresh rate expects float
+      outputs = lib.listToAttrs (
+        map (m: {
+          name = m.name;
+          value = {
+            mode = {
+              width = m.width;
+              height = m.height;
+              refresh = (0.0 + m.refreshRate); # Refresh rate expects float
+            };
+            scale = m.scale;
+            position = m.position;
+            focus-at-startup = m.primary;
           };
-          scale = m.scale;
-          position = m.position;
-          focus-at-startup = m.primary;
-        };
-      }) (config.monitors));
+        }) (config.monitors)
+      );
 
       input = {
         keyboard.numlock = true;
