@@ -8,7 +8,6 @@
     ./starship
     ./direnv.nix
     ./fzf.nix
-    # ./neovim.nix
     ./nixvim
     ./eza.nix
 
@@ -22,7 +21,10 @@
   };
 
   home = {
-    packages = with pkgs; [ neofetch ];
+    packages = with pkgs; [
+      neofetch
+      regex-tui # TUI regex visualiser
+    ];
     shellAliases = {
       "ns" = "nh os switch";
       "nt" = "nh os test";
