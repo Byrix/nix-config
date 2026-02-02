@@ -1,1 +1,5 @@
-{ imports = [ ./discord.nix ]; }
+{
+  imports = [
+    ./vesktop.nix
+  ];
+}
