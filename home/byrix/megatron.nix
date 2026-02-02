@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./global
-    ./features/config/colours.nix
     ./features/desktop/niri
     ./features/games
     ./features/desktop/common
@@ -21,19 +21,28 @@
       height = 1440;
       width = 3440;
       primary = true;
-      position = { x=0; y=0; };
+      position = {
+        x = 0;
+        y = 0;
+      };
     }
     {
       name = "DP-2";
       height = 1080;
       width = 1920;
-      position = { x=-1920; y=720; };
+      position = {
+        x = -1920;
+        y = 720;
+      };
     }
     {
       name = "HDMI-A-1";
       height = 1080;
       width = 1920;
-      position = { x=-1920; y=-720; };
+      position = {
+        x = -1920;
+        y = -720;
+      };
     }
   ];
 }
