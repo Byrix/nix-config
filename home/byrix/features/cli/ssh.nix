@@ -1,25 +1,38 @@
-{ outputs, lib, config, pkgs, ... }: 
+{
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   nixosConfigs = builtins.attrNames outputs.nixosConfigurations;
-  homeConfigs = map (n: lib.last (lib.splitString "@" n)) (builtins.attrNames outputs.homeConfigurations);
+  homeConfigs = map (n: lib.last (lib.splitString "@" n)) (
+    builtins.attrNames outputs.homeConfigurations
+  );
   hostnames = lib.unique (homeConfigs ++ nixosConfigs);
-in {
+in
+{
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       net = {
-        host = lib.concatStringsSep " " (lib.flatten (map (host: [
-            host
-            "${host}.byrix.dev"
-          ])
-          hostnames));
+        host = lib.concatStringsSep " " (
+          lib.flatten (
+            map (host: [
+              host
+              "${host}.byrix.dev"
+            ]) hostnames
+          )
+        );
         forwardX11 = true;
         forwardX11Trusted = true;
       };
     };
   };
 
-  # Run Waypipe server on boot to support SSH forwarding 
+  # Run Waypipe server on boot to support SSH forwarding
   systemd.user.services = {
     waypipe-server = {
       Unit.Description = "Runs a waypipe server on boot to support SSH forwarding";
@@ -32,8 +45,8 @@ in {
       Install.WantedBy = [ "default.target" ];
     };
 
-    # Link /run/user/$UID/gnupg to ~/.gnupg-sockets 
-    # So that SSH does not have to know the UID 
+    # Link /run/user/$UID/gnupg to ~/.gnupg-sockets
+    # So that SSH does not have to know the UID
     link-gnupg-sockets = {
       Unit.Description = "link gnupg sockets from /run to /home";
       Service = {
@@ -46,3 +59,4 @@ in {
     };
   };
 }
+
