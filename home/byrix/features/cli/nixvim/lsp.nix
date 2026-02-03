@@ -7,6 +7,11 @@
 
   lsp = {
     inlayHints.enable = true;
+    keymaps = [ ];
+
+    servers = {
+      nil_ls.enable = true;
+    };
   };
 
   plugins = {
@@ -14,7 +19,7 @@
     lsp-lines.enable = true;
   };
 
-  autoGroups.lsp-attach.clean = true;
+  autoGroups.lsp-attach.clear = true;
   autoCmd = [
     {
       event = [ "LspAttach" ];
