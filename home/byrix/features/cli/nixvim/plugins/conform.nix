@@ -18,6 +18,7 @@
           "nil"
           "nixfmt"
         ];
+        python = [ "black" ];
       };
     };
   };
