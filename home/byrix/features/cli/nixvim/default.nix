@@ -7,6 +7,7 @@
     imports = [
       ./keybinds.nix
       ./plugins
+      ./lsp.nix
     ];
 
     colorschemes.catppuccin = {
@@ -45,7 +46,10 @@
       splitbelow = true;
 
       # Scroll
-      scrolloff = 5;
+      scrolloff = 10;
+
+      # Misc
+      cmdheight = 0;
     };
 
     autoCmd = [

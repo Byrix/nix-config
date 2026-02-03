@@ -2,11 +2,11 @@
   imports = [
     ./cmp.nix
     ./conform.nix
-    ./telescope.nix
     ./indent-blankline.nix
-    ./treesitter.nix
-    ./project.nix
     ./nvim-tree.nix
+    ./project.nix
+    ./telescope.nix
+    ./treesitter.nix
   ];
 
   plugins = {
@@ -15,7 +15,6 @@
     neogen.enable = true;
     none-ls.enable = true;
     otter.enable = true;
-    lspconfig.enable = true;
 
     # Keybinds
     which-key.enable = true;
