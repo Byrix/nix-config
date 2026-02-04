@@ -8,10 +8,6 @@
   lsp = {
     inlayHints.enable = true;
     keymaps = [ ];
-
-    servers = {
-      nil_ls.enable = true;
-    };
   };
 
   plugins = {

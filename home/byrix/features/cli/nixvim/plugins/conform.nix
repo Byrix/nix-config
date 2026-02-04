@@ -7,19 +7,6 @@
         timeout_ms = 500;
         lsp_fallback = true;
       };
-
-      formatters_by_ft = {
-        # All files
-        "*" = [ "codespell" ];
-        # Unconfigured file types
-        "_" = [ "trim_whitespace" ];
-
-        nix = [
-          "nil"
-          "nixfmt"
-        ];
-        python = [ "black" ];
-      };
     };
   };
 }
