@@ -8,6 +8,7 @@
       let
         set-volume = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@";
         playerctl = spawn "${pkgs.playerctl}/bin/playerctl";
+        brightnessctl = spawn "${pkgs.brightnessctl}/bin/player";
       in
       {
         "Mod+Q".action = close-window;
@@ -42,6 +43,8 @@
         "XF86AudioNext".action = playerctl "next";
         "XF86AudioRaiseVolume".action = set-volume "5%+";
         "XF86AudioLowerVolume".action = set-volume "5%-";
+        "XF86MonBrightnessUp".action = brightnessctl "s" "+10%";
+        "XF86MonBrightnessDown".action = brightnessctl "s" "10%-";
       };
   };
 }
