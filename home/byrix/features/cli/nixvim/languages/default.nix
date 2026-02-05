@@ -1,7 +1,12 @@
 {
   imports = [
+    ./text.nix
     ./nix.nix
+    ./shells.nix
+    ./git.nix
+    ./iac.nix
     ./python.nix
+    ./docker.nix
   ];
 
   lsp.servers = {
@@ -15,6 +20,7 @@
         ];
       };
     };
+    codebook.enable = true;
   };
 
   plugins.conform-nvim.settings = {

@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   lsp.servers = {
     basedpyright = {
@@ -10,8 +11,21 @@
   };
 
   plugins.conform-nvim.settings = {
-    formatters_by_ft.python = [
-      "black"
-    ];
+    formatters = {
+      pyproject-fmt = {
+        condition = lib.nixvim.mkRaw ''
+          function(self, ctx)
+            return vim.fs.basename(ctx.filename) == "pyproject.toml"
+          end
+        '';
+      };
+    };
+    formatters_by_ft = {
+      python = [
+        "black"
+        # "pyment"
+        "isort"
+      ];
+    };
   };
 }
